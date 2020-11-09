@@ -2,17 +2,29 @@ package com.App.App.Controller;
 
 import com.App.App.Model.User;
 import com.App.App.Repository.UserRepository;
+import com.App.App.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("api/v1/user")
+@RestController
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository){
-        this.userRepository = userRepository;
+    @Autowired
+    public UserController(UserService userService){
+        this.userService = userService;
     }
 
-    public int addUser(User user){
-        return userRepository.insertUser(user);
+    @PostMapping
+    public void addUser(@RequestBody User user){
+        userService.addUser(user);
+    }
+
+    @GetMapping
+    public void getUsers(){
+        userService.getUsers();
     }
 
 }

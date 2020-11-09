@@ -15,4 +15,8 @@ public class UserRepository {
         return 1;
     }
 
+    public List<User> getUsers(){
+        return DB;
+    }
+
 }
