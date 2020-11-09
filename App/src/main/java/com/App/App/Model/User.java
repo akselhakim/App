@@ -1,5 +1,7 @@
 package com.App.App.Model;
 
+import com.App.App.Repository.IUserRepository;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -8,16 +10,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private long userId;
+    //@Column(name = "user_id")
+    private Long userId;
 
-    @Column(name = "email")
+    //@Column(name = "email")
     private String email;
 
-    @Column(name = "username")
+    //@Column(name = "username")
     private String userName;
 
-    @Column(name = "password")
+    //@Column(name = "password")
     private String password;
 
 
