@@ -1,25 +1,23 @@
 package com.App.App.Model;
 
-import com.App.App.Repository.IUserRepository;
-
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
+@Table(name = "user", schema = "public")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "user_id")
+    @Column(name = "user_id")
     private Long user_id;
 
-    //@Column(name = "email")
+    @Column(name = "email")
     private String email;
 
-    //@Column(name = "username")
+    @Column(name = "username")
     private String username;
 
-    //@Column(name = "password")
+    @Column(name = "password")
     private String password;
 
 
@@ -27,7 +25,7 @@ public class User {
         super();
     }
 
-    public User(long userId, String email, String userName, String password) {
+    public User(Long userId, String email, String userName, String password) {
         super();
         this.user_id = userId;
         this.email = email;

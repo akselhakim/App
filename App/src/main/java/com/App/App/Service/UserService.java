@@ -17,10 +17,10 @@ public class UserService {
     }
 
     public void addUser(User user){
-        userRepository.insertUser(user);
+        userRepository.save(user);
     }
 
     public List<User> getUsers(){
-        return userRepository.getUsers();
+        return userRepository.findAll();
     }
 }
