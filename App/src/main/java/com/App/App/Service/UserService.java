@@ -5,6 +5,8 @@ import com.App.App.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -18,7 +20,7 @@ public class UserService {
         userRepository.insertUser(user);
     }
 
-    public void getUsers(){
-        userRepository.getUsers();
+    public List<User> getUsers(){
+        return userRepository.getUsers();
     }
 }

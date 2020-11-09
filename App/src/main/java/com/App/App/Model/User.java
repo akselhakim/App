@@ -11,13 +11,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "user_id")
-    private Long userId;
+    private Long user_id;
 
     //@Column(name = "email")
     private String email;
 
     //@Column(name = "username")
-    private String userName;
+    private String username;
 
     //@Column(name = "password")
     private String password;
@@ -29,14 +29,14 @@ public class User {
 
     public User(long userId, String email, String userName, String password) {
         super();
-        this.userId = userId;
+        this.user_id = userId;
         this.email = email;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
     }
 
     public long getUserId(){
-        return this.userId;
+        return this.user_id;
     }
 
     public String getEmail(){
@@ -44,7 +44,7 @@ public class User {
     }
 
     public String getUserName(){
-        return this.userName;
+        return this.username;
     }
 
     public String getPassword(){
