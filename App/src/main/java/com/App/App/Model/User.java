@@ -16,13 +16,25 @@ public class User {
 
     @Column(name = "email")
     private String email;
-    
+
     @Column(name = "password")
     private String password;
 
     @Column(name = "name")
     private String name;
-    
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public User(){
         super();
     }
