@@ -1,9 +1,14 @@
 package com.App.App.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user", schema = "public")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -21,17 +26,16 @@ public class User {
     private String password;
 
 
-    public User(){
-        super();
-    }
-
-    public User(Long userId, String email, String userName, String password) {
-        super();
-        this.user_id = userId;
-        this.email = email;
-        this.username = userName;
-        this.password = password;
-    }
+//    public User(){
+//        super();
+//    }
+//
+//    public User(Long user_id, String email, String username, String password) {
+//        this.user_id = user_id;
+//        this.email = email;
+//        this.username = username;
+//        this.password = password;
+//    }
 
     public long getUserId(){
         return this.user_id;
