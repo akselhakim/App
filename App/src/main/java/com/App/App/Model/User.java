@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user", schema = "public")
@@ -22,6 +23,14 @@ public class User {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "coin")
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "coin",
+            joinColumns = @JoinColumn(referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(referencedColumnName = "name"))
+    private List<Coin> coin;
 
     public void setEmail(String email) {
         this.email = email;

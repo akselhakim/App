@@ -1,10 +1,8 @@
 package com.App.App.Model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "coin")
 @Entity
@@ -16,6 +14,9 @@ public class Coin {
 
     @Column(name = "keyword")
     private String keyword;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "coin")
+    private List<User> users;
 
     public Coin(String name, String keyword){
         this.keyword = keyword;

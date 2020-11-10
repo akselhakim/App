@@ -1,6 +1,7 @@
 package com.App.App.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tweet")
@@ -9,13 +10,10 @@ public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "author")
     private String author;
-
-    @Column(name = "coin")
-    private String coin;
 
     @Column(name = "text")
     private String text;
@@ -23,9 +21,16 @@ public class Tweet {
     @Column(name = "positivity")
     private float positivity;
 
-    public Tweet(String author, String coin, String text, float positivity) {
+    @Column(name = "coin")
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "coin",
+            joinColumns = @JoinColumn(referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(referencedColumnName = "name"))
+    private List<Coin> coin;
+
+    public Tweet(String author, String text, float positivity) {
         this.author = author;
-        this.coin = coin;
         this.text = text;
         this.positivity = positivity;
     }
@@ -42,11 +47,11 @@ public class Tweet {
         this.author = author;
     }
 
-    public String getCoin() {
+    public List<Coin> getCoin() {
         return coin;
     }
 
-    public void setCoin(String coin) {
+    public void setCoin(List<Coin> coin) {
         this.coin = coin;
     }
 
