@@ -16,22 +16,22 @@ public class User {
 
     @Column(name = "email")
     private String email;
-
-    @Column(name = "username")
-    private String username;
-
+    
     @Column(name = "password")
     private String password;
+
+    @Column(name = "name")
+    private String name;
     
     public User(){
         super();
     }
 
-    public User(Long user_id, String email, String username, String password) {
+    public User(Long user_id, String email, String password, String name) {
         this.user_id = user_id;
         this.email = email;
-        this.username = username;
         this.password = password;
+        this.name = name;
     }
 
     public long getUserId(){
@@ -42,8 +42,8 @@ public class User {
         return this.email;
     }
 
-    public String getUserName(){
-        return this.username;
+    public String getName(){
+        return this.name;
     }
 
     public String getPassword(){
